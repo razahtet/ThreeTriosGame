@@ -2,14 +2,17 @@
 
 Overview:
 This codebase is the implementation for the Three Trios gameplay with a textual customer.provider.view. To understand the code, the user must know about builder customer.provider.model patterns, how to connect the textual customer.provider.view to the customer.provider.model, and know how to test the customer.provider.model and customer.provider.view based on how the game works.
+
 Quick start:
-To use the code, such as testing, you can start by creating a ThreeTriosModel, a GameView, and starting the game with the given configuration grid and card files which are located in src\\customer.ConstructorFiles. An example is like this:
+To use the code, such as testing, you can start by creating a ThreeTriosModel, a GameView, and starting the game with the given configuration grid and card files which are located in src\\customer.ConstructorFiles. 
+An example is like this:
 ThreeTriosModel customer.provider.model = new ThreeTriosGameModel();
     GameView customer.provider.view = new ThreeTriosView(customer.provider.model);
     customer.provider.model.startGame(
             "src\\customer.ConstructorFiles\\GridFile_13",
             "src\\customer.ConstructorFiles\\CardFile_5",
             false);
+
 Then you can build on the code using the public methods of customer.provider.model, such as playToGrid() and battle() to play the game. After using a playToGrid(), you must use battle(). The functions have been divided into two to make debugging and "playing the game" purposes easier.
 
 
@@ -76,4 +79,4 @@ Update #3:
 Update #4:
 - Added a modification type "Same" where the player can modify the game mode to include where if the number of the player's card is the same as the
   attacking direction of the opponent's card number, the opponent's card gets flipped (the player takes it).
-- Fixed a small bug where players could not get hints when the board was different length and width.
+- Fixed a small bug where players could not get hints when the board was a different length and width.
