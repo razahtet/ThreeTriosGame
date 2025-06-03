@@ -1,5 +1,12 @@
 # ThreeTriosGame
 
+A turn-based strategy game where two players must occupy the board with the most cards given. When a player places a card, that space cannot be a hole and it cannot already be occupied. If the card's number is greater than the number in the facing direction of another card that the other player occupies, the person ends up occupying that card on the space, and that effect stacks. The game ends when all possible spaces on the board are occupied. The winner is the player who occupies more spaces on the board. 
+
+Reverse mode is basically "less than" instead of greater.
+Fallen Ace is that the A is the lowest, less than 1, usually it's the greatest.
+Reverse Fallen Ace is Reverse and Fallen Ace Combined.
+Same is a modification that can be added to all these game modes where the card can flip the other card if the number facing the other number are the same. 
+
 Overview:
 This codebase is the implementation for the Three Trios gameplay with a textual customer.provider.view. To understand the code, the user must know about builder customer.provider.model patterns, how to connect the textual customer.provider.view to the customer.provider.model, and know how to test the customer.provider.model and customer.provider.view based on how the game works.
 
@@ -48,7 +55,7 @@ Source Organization:
     (A non-trivial intermediate point of the game)
 
 
-Update #1
+Update #1 (12/24):
 - Get a shallow copy of the game grid, where the user cannot modify the actual game grid
 - Get the number of cards a player can flip given a card index from the player's hand,
   and the x and y (the cell location) assuming it is the player's turn
@@ -61,7 +68,7 @@ Update #1
   getNumCardsCanFlip() as it uses a copy of the game customer.provider.model and plays a "different card"
   (the same card but not for the actual game) to a copied grid and then a "simulation".
 
-Update #2:
+Update #2 (12/24):
 - Fixed the bugs of recursive battling and battling when cards got played to the grid
   (color of cards did not change for some reason).
 - Fixed UI implementation of deselecting the card if the player tried to play a card to a hole.
@@ -72,11 +79,11 @@ Update #2:
 - Added another method in our implementation of getting all the game's cards when the game is made because the provider
   had a method in the model that got all the original cards of the game.
 
-Update #3:
+Update #3 (12/24):
 - Pressing H reveals the hints for a player for how many cards they can flip, only if a card is selected. Press H again to hide the hints. When it moves to the next player's turn, the new player needs to press H to reveal their hints.
 - In the command line, typing "r" for the reverse battle mode, typing "fa" for the fallen ace battle mode, "rfa" for the reverse and fallen ace battle mode, and "n" for the normal battle mode.
 
-Update #4:
+Update #4 (5/20/25):
 - Added a modification type "Same" where the player can modify the game mode to include where if the number of the player's card is the same as the
   attacking direction of the opponent's card number, the opponent's card gets flipped (the player takes it).
 - Fixed a small bug where players could not get hints when the board was a different length and width.
