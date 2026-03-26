@@ -102,7 +102,7 @@ This project was built with **Object-Oriented Design (OOD)** principles and prof
 ## Key Engineering Features
 * **AI-Style Hint System:** Pressing **'H'** triggers simulation logic that calculates the potential "flip count" for every valid move on the board. This uses **deep-copy state simulations** to evaluate outcomes in a parallel "virtual" model.
 * **Modular Battle Logic:** The `playToGrid()` and `battle()` functions are separate to simplify debugging and allow for granular testing of board state transitions.
-* **Flexible Game Modes:**
+* **Different Game Modes:**
     * **Reverse:** Flips occur when the attacking number is *less* than the defender.
     * **Fallen Ace:** Changes the 'A' card from the highest to the lowest value.
     * **Same:** A modification allowing flips when facing numbers are equal.
