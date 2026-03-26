@@ -1,4 +1,4 @@
-# ThreeTriosGame
+<!--# ThreeTriosGame
 
 A turn-based strategy game where two players must occupy the board with the most cards given. When a player places a card, that space cannot be a hole, and it cannot already be occupied. If the card's number is greater than the number in the facing direction of another card that the other player occupies, the person ends up occupying that card on the space, and that effect stacks. The game ends when all possible spaces on the board are occupied. The winner is the player who occupies more spaces on the board. 
 
@@ -87,3 +87,35 @@ The ThreeTriosGameModel drives the ThreeTriosView since a customer.provider.view
 - Added a modification type "Same," where the player can modify the game mode to include whether the number on the player's card is the same as the
   attacking direction of the opponent's card number, the opponent's card gets flipped (the player takes it).
 - Fixed a small bug where players could not get hints when the board was a different length and width.
+-->
+# ThreeTriosGame: Object-Oriented Programming Strategy Game
+
+A turn-based strategy game where two players compete to occupy a grid-based board. The core mechanics involve card-based "battles" where adjacent cards are flipped based on numerical values. The game ends when the board is full, and the winner is determined by who occupys the most squares.
+
+## System Architecture & Design
+This project was built with **Object-Oriented Design (OOD)** principles and professional software architecture:
+* **Model-View-Controller (MVC):** The system separates game logic (Model) from the GUI and textual rendering (View), using a Controller to manage user interactions and state updates.
+* **Design Patterns:** * **Decorator Pattern:** Used to implement various game modes (Reverse, Fallen Ace, Same) without modifying the core battle logic.
+    * **Builder Pattern:** Utilized for system configuration and setup.
+* **Data Integrity:** Implemented shallow and deep copy mechanisms to make sure that the "hint" system and view-only components cannot modify the active game state.
+
+## Key Engineering Features
+* **AI-Style Hint System:** Pressing **'H'** triggers simulation logic that calculates the potential "flip count" for every valid move on the board. This uses **deep-copy state simulations** to evaluate outcomes in a parallel "virtual" model.
+* **Modular Battle Logic:** The `playToGrid()` and `battle()` functions are separate to simplify debugging and allow for granular testing of board state transitions.
+* **Flexible Game Modes:**
+    * **Reverse:** Flips occur when the attacking number is *less* than the defender.
+    * **Fallen Ace:** Changes the 'A' card from the highest to the lowest value.
+    * **Same:** A modification allowing flips when facing numbers are equal.
+
+## Source Organization
+* **`src/model`**: Core game state, rules, and battle engine.
+* **`src/view`**: Textual and GUI (Swing-based) output implementations.
+* **`src/gamefeatures`**: Core entities including `GameGrid`, `GameCard`, `Player`, and `Direction`.
+* **`src/fileoperation`**: Logic for parsing configuration files for grids and card decks.
+* **`src/controller`**: Bridges the Model and GUI, handling selection highlighting and move validation.
+
+## Development History & Refactoring
+Many several iterative updates were focused on system stability and feature expansion:
+* **Logic Refinement:** Resolved recursive battling bugs and ensured card color transitions (occupancy changes) tracked correctly during complex flip chains.
+* **UI/UX Improvements:** Implemented visual feedback for card selection (black-box highlighting) and error handling for illegal moves, such as playing to holes.
+* **Robust Testing:** Developed comprehensive test suites for individual classes and integrated GUI testing to ensure win/tie conditions and hint reveals work across different board dimensions.
