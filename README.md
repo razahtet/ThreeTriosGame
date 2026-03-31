@@ -95,7 +95,8 @@ A turn-based strategy game where two players compete to occupy a grid-based boar
 ## System Architecture & Design
 This project was built with **Object-Oriented Design (OOD)** principles and professional software architecture:
 * **Model-View-Controller (MVC):** The system separates game logic (Model) from the GUI and textual rendering (View), using a Controller to manage user interactions and state updates.
-* **Design Patterns:** * **Decorator Pattern:** Used to implement various game modes (Reverse, Fallen Ace, Same) without modifying the core battle logic.
+* **Design Patterns:**
+    * **Decorator Pattern:** Used to implement various game modes (Reverse, Fallen Ace, Same) without modifying the core battle logic.
     * **Builder Pattern:** Utilized for system configuration and setup.
 * **Data Integrity:** Implemented shallow and deep copy mechanisms to make sure that the "hint" system and view-only components cannot modify the active game state.
 
